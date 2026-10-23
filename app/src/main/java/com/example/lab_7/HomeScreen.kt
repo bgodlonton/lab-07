@@ -1,0 +1,41 @@
+package com.example.lab_7
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+
+@Composable
+fun HomeScreen(navController: NavController) {
+    Column() {
+        Text(
+            text="FormulaZero Home",
+            fontSize=24.sp
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = {navController.navigate("races")},
+            modifier = Modifier.testTag("raceButton")
+        ) {
+            Text("Upcoming Races")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = { navController.navigate("drivers")},
+            modifier = Modifier.testTag("driverButton")
+        ) {
+            Text("Drivers List")
+        }
+    }
+}
